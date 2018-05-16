@@ -1,6 +1,7 @@
 # DLE Avatar-Select (light) by Sander
-Модуль для DLE. Выбор аватарки из списка
+Модуль для DLE. Выбор аватарки из существующего списка файлов.
 <img src="https://sandev.pro/uploads/posts/2018-05/1526470540_screenshot_1.png" />
+С полной, платной версией модуля можно ознакомиться на сайте https://sandev.pro/shop/132-avatar-select-by-sander.html
 
 
 ## Установка
