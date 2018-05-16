@@ -1,4 +1,4 @@
-# DLE-Avatar-Select-light
+# DLE Avatar-Select (light) by Sander
 Модуль для DLE. Выбор аватарки из списка
 <img src="https://sandev.pro/uploads/posts/2018-05/1526470540_screenshot_1.png" />
 
