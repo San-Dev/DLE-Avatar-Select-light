@@ -7,7 +7,7 @@
 Залить папки **engine** и **uploads** в корень сайта
 
 Открыть файл шаблона **main.tpl**
-В подвале сайта (например перед </body>) вставить:
+В подвале сайта, например перед ```</body>``` вставить:
 ```
 <script src="/engine/mods/AvatarSelect/assets/libs.js"></script>
 ```
