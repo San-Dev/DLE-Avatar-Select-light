@@ -10,17 +10,38 @@
 
 class AvatarSelect
 {
+	/**
+	 * Допустимые типы файлов
+	 * @var array
+	 */
 	protected $allow_type = ['jpg','jpeg','png','gif'];
 
+	/**
+	 * Путь к папке с картинками
+	 * @var string
+	 */
 	protected $local_path = '/uploads/fotos/bank/';
 
+	/**
+	 * Локализация
+	 * @var array
+	 */
 	protected $lang = [];
 
+	/**
+	 * Инициализация класса
+	 * @param array $lang тексты
+	 */
 	public function __construct($lang = [])
 	{
 		$this->lang = $lang;
 	}
 
+	/**
+	 * Выводит ошибку в json формате и прекращает работу
+	 * @param  string $title текст ошибки
+	 * @return void
+	 */
 	public function returnError($title = '')
 	{
 		$error = json_encode(['error' => $title], JSON_UNESCAPED_UNICODE);
@@ -28,6 +49,11 @@ class AvatarSelect
 		die();
 	}
 
+	/**
+	 * Получение полного адреса аватарки или заглушки
+	 * @param  string $member_foto
+	 * @return string
+	 */
 	public function getFoto($member_foto = '')
 	{
 		global $config;
@@ -51,7 +77,12 @@ class AvatarSelect
 		return $config['http_home_url'] . "uploads/fotos/" . $member_foto;
 	}
 
-	private function parseFotoPath($src)
+	/**
+	 * Обработка и проверка входящего имени файла
+	 * @param  string $src
+	 * @return string безопасное имя файла
+	 */
+	private function parseFotoPath($src = '')
 	{
 		if (!$src) {
 			$this->returnError($this->lang['err_nopath']);
@@ -73,7 +104,12 @@ class AvatarSelect
 		}
 	}
 
-	public function updateFoto($foto_src)
+	/**
+	 * Обновление фото в профиле пользователя
+	 * @param  string $foto_src адрес выбранного фото
+	 * @return void
+	 */
+	public function updateFoto($foto_src = '')
 	{
 		global $db, $member_id;
 		if ($data = $this->parseFotoPath($foto_src)) {
@@ -87,6 +123,10 @@ class AvatarSelect
 		}
 	}
 
+	/**
+	 * Получение списка изображений в папке
+	 * @return array
+	 */
 	public function getImgList()
 	{
 		$dh = scandir(ROOT_DIR . $this->local_path);
@@ -106,6 +146,10 @@ class AvatarSelect
 		return $list;
 	}
 
+	/**
+	 * Проверка - есть ли фото и является ли оно картинкой из базы
+	 * @return [type] [description]
+	 */
 	public function getFotoInfo()
 	{
 		global $member_id;
