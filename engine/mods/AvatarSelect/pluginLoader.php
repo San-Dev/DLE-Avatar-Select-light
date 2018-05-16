@@ -1,6 +1,8 @@
 <?php
-
-include_once ENGINE_DIR . '/classes/plugins.class.php2';
+/**
+ * Для совместимости с версиями DLE до 13.0
+ */
+include_once ENGINE_DIR . '/classes/plugins.class.php';
 
 if (!class_exists('DLEPlugins')) {
 	abstract class DLEPlugins {
